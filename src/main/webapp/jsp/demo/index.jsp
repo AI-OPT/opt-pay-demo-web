@@ -81,6 +81,16 @@ body {
 		$("#btn_"+num).attr("class","selected");
 		$("#tag_"+num).show();
 	}
+	
+	function gotoPay() {
+		document.getElementById("form_0").action="${_base}/demo/gotoPayByOrg";
+		var input_txt = document.createElement("input");
+		input_txt.type = "text";
+		input_txt.name = "payOrgCode";
+		document.getElementById("form_0").appendChild(input_txt);
+		document.getElementById("form_0").submit();
+	}
+	
 </script>
 </head>
 <body>
@@ -97,7 +107,7 @@ body {
 		<!--二级菜单-->
 		<div id="menu_con">
 			<div class="tag"  id="tag_0" style="display: block">
-				<form action="${_base}/demo/gotoPay" target="_blank" method="post">
+				<form id="form_0" action="${_base}/demo/gotoPay" target="_blank" method="post">
 					<table>
 						<tr>
 							<td>租户ID:</td>
@@ -139,6 +149,7 @@ body {
 						<tr>
 							<td><input type="submit" value="提交" /></td>
 						</tr>
+						
 					</table>
 				</form>
 			</div>
@@ -194,6 +205,17 @@ body {
 				</form>
 			</div>
 		</div>
+	</div>
+	<div>
+		<input type="image" src="${_base}/images/ZFB.png" border="0" name="" alt="" onclick="gotoPay()" />
+	</div>
+	<div>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="9GGPHL7LK3KWL">
+<input type="image" src="https://www.paypalobjects.com/zh_XC/C2/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal——最安全便捷的在线支付方式！">
+<img alt="" border="0" src="https://www.paypalobjects.com/zh_XC/i/scr/pixel.gif" width="1" height="1">
+</form>
 	</div>
 </body>
 </html>
